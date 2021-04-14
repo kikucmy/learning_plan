@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+/* 期限切れの場合の赤表示 */
+.expired {
+    color: red;
+}
