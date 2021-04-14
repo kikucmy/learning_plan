@@ -70,17 +70,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input type="date" name="due_date" value="<?= h($plan['due_date']); ?>">
                     <input type="submit" value="編集">
                 </div>
-                <ul  style="color:red;">
-                    <?php if ($errors['title']): ?>
-                        <li><?= h($errors['title']) ?></li>
-                    <?php endif; ?>
-                    <?php if ($errors['due_date']): ?>
-                        <li><?= h($errors['due_date']) ?></li>
-                    <?php endif; ?>
-                    <?php if ($errors['nochange']): ?>
-                        <li><?= h($errors['nochange']) ?></li>
-                    <?php endif; ?>
-                </ul>
+                <?php if ($errors): ?>
+                    <ul style="color:red;">
+                        <?php foreach ($errors as $error): ?>
+                            <li><?= h($error) ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
                 <a href="index.php">戻る</a>
             </form>
         </div>

@@ -71,14 +71,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input type="date" name="due_date">
                     <input type="submit" value="追加">
                 </div>
-                <ul  style="color:red;">
-                    <?php if ($errors['title']): ?>
-                        <li><?= h($errors['title']) ?></li>
-                    <?php endif; ?>
-                    <?php if ($errors['due_date']): ?>
-                        <li><?= h($errors['due_date']) ?></li>
-                    <?php endif; ?>
-                </ul>
+                <?php if ($errors): ?>
+                    <ul style="color:red;">
+                        <?php foreach ($errors as $error): ?>
+                            <li><?= h($error) ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
             </form>
         </div>
 
